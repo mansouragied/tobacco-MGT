@@ -1,0 +1,18 @@
+<odoo>
+  <record id="mrp_production_form_inherit_qty_mc" model="ir.ui.view">
+    <field name="name">mrp.production.form.inherit.qty.mc</field>
+    <field name="model">mrp.production</field>
+    <field name="inherit_id" ref="mrp.mrp_production_form_view"/>
+    <field name="arch" type="xml">
+      <xpath expr="//form[1]/sheet[1]/notebook[1]/page[@name='components']/field[@name='move_raw_ids']/tree[1]/field[@name='location_id']" position="after">
+        <field name="qty_mc" optional="show"/>
+      </xpath>
+      <xpath expr="//form[1]/sheet[1]/notebook[1]/page[@name='components']/field[@name='move_raw_ids']/tree[1]/field[@name='product_uom_qty']" position="attributes">
+        <attribute name="string">Required Quantity</attribute>
+      </xpath>
+      <xpath expr="//form[1]/sheet[1]/notebook[1]/page[@name='components']/field[@name='move_raw_ids']/tree[1]/field[@name='quantity']" position="attributes">
+        <attribute name="string">Quantity Actual</attribute>
+      </xpath>
+    </field>
+  </record>
+</odoo>

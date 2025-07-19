@@ -1,0 +1,60 @@
+<odoo>
+  <data>
+    <!-- explicit list view definition -->
+<!--
+    <record model="ir.ui.view" id="marinti_mrp_tobacco.list">
+      <field name="name">marinti_mrp_tobacco list</field>
+      <field name="model">marinti_mrp_tobacco.marinti_mrp_tobacco</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="name"/>
+          <field name="value"/>
+          <field name="value2"/>
+        </tree>
+      </field>
+    </record>
+-->
+
+    <!-- actions opening views on models -->
+<!--
+    <record model="ir.actions.act_window" id="marinti_mrp_tobacco.action_window">
+      <field name="name">marinti_mrp_tobacco window</field>
+      <field name="res_model">marinti_mrp_tobacco.marinti_mrp_tobacco</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+-->
+
+    <!-- server action to the one above -->
+<!--
+    <record model="ir.actions.server" id="marinti_mrp_tobacco.action_server">
+      <field name="name">marinti_mrp_tobacco server</field>
+      <field name="model_id" ref="model_marinti_mrp_tobacco_marinti_mrp_tobacco"/>
+      <field name="state">code</field>
+      <field name="code">
+        action = {
+          "type": "ir.actions.act_window",
+          "view_mode": "tree,form",
+          "res_model": model._name,
+        }
+      </field>
+    </record>
+-->
+
+    <!-- Top menu item -->
+<!--
+    <menuitem name="marinti_mrp_tobacco" id="marinti_mrp_tobacco.menu_root"/>
+-->
+    <!-- menu categories -->
+<!--
+    <menuitem name="Menu 1" id="marinti_mrp_tobacco.menu_1" parent="marinti_mrp_tobacco.menu_root"/>
+    <menuitem name="Menu 2" id="marinti_mrp_tobacco.menu_2" parent="marinti_mrp_tobacco.menu_root"/>
+-->
+    <!-- actions -->
+<!--
+    <menuitem name="List" id="marinti_mrp_tobacco.menu_1_list" parent="marinti_mrp_tobacco.menu_1"
+              action="marinti_mrp_tobacco.action_window"/>
+    <menuitem name="Server to list" id="marinti_mrp_tobacco" parent="marinti_mrp_tobacco.menu_2"
+              action="marinti_mrp_tobacco.action_server"/>
+-->
+  </data>
+</odoo>

@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Maker Performance Tree View -->
+    <record id="view_maker_performance_tree" model="ir.ui.view">
+        <field name="name">maker.performance.tree</field>
+        <field name="model">maker.performance</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="date"/>
+                <field name="production_id" string="Manufacturing Order"/>
+                <field name="making_operation_id" string="Operation"/>
+                <field name="actual_production_trays" string="Actual Production (Trays)"/>
+                <field name="oee" string="OEE %"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- Maker Performance Form View -->
+    <record id="view_maker_performance_form" model="ir.ui.view">
+        <field name="name">maker.performance.form</field>
+        <field name="model">maker.performance</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <field name="production_id" string="Manufacturing Order"/>
+                        <field name="date"/>
+                        <field name="making_operation_id" string="Operation"/>
+                    </group>
+                    <group string="Production Data">
+                        <field name="actual_production_trays"/>
+                        <field name="actual_production_cig" readonly="1"/>
+                        <field name="waste_cig_kg"/>
+                        <field name="waste_cigarettes" readonly="0"/>
+                        <field name="dust_kg"/>
+                        <field name="winnows_kg"/>
+                    </group>
+                    <group string="Time Management">
+                        <field name="shift_start"/>
+                        <field name="shift_end"/>
+                        <field name="planned_time" readonly="1"/>
+                        <field name="machine_cleaning"/>
+                        <field name="meal_break"/>
+                        <field name="pray_break"/>
+                        <field name="available_time_min" readonly="1"/>
+                        <field name="downtime" readonly="1"/>
+                    </group>
+                    <group string="Performance Metrics">
+                        <field name="machine_speed"/>
+                        <field name="standard_production" readonly="1"/>
+                        <field name="available_production" readonly="1"/>
+                        <field name="actual_running_time" readonly="1"/>
+                    </group>
+                    <group string="OEE Calculation">
+                        <field name="availability" readonly="1"/>
+                        <field name="performance" readonly="1"/>
+                        <field name="quality" readonly="1"/>
+                        <field name="oee" readonly="1"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- Packer Performance Tree View -->
+    <record id="view_packer_performance_tree" model="ir.ui.view">
+        <field name="name">packer.performance.tree</field>
+        <field name="model">packer.performance</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="date"/>
+                <field name="production_id" string="Manufacturing Order"/>
+                <field name="packing_operation_id" string="Operation"/>
+                <field name="actual_production_mc" string="Actual Production (MC)"/>
+                <field name="oee" string="OEE %"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- Packer Performance Form View -->
+    <record id="view_packer_performance_form" model="ir.ui.view">
+        <field name="name">packer.performance.form</field>
+        <field name="model">packer.performance</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <field name="production_id" string="Manufacturing Order"/>
+                        <field name="date"/>
+                        <field name="packing_operation_id" string="Operation"/>
+                    </group>
+                    <group string="Production Data">
+                        <field name="actual_production_mc"/>
+                        <field name="actual_production_packets" readonly="1"/>
+                        <field name="waste_cig_kg"/>
+                        <field name="waste_cigarettes" readonly="0"/>
+                        <field name="shell_waste_kg"/>
+                        <field name="slides_waste_kg"/>
+                        <field name="aluminium_foil_waste_kg"/>
+                    </group>
+                    <group string="Time Management">
+                        <field name="shift_start"/>
+                        <field name="shift_end"/>
+                        <field name="planned_time" readonly="1"/>
+                        <field name="machine_cleaning"/>
+                        <field name="meal_break"/>
+                        <field name="pray_break"/>
+                        <field name="available_time_min" readonly="1"/>
+                        <field name="downtime" readonly="1"/>
+                    </group>
+                    <group string="Performance Metrics">
+                        <field name="machine_speed"/>
+                        <field name="standard_production" readonly="1"/>
+                        <field name="available_production" readonly="1"/>
+                        <field name="actual_running_time" readonly="1"/>
+                    </group>
+                    <group string="OEE Calculation">
+                        <field name="availability" readonly="1"/>
+                        <field name="performance" readonly="1"/>
+                        <field name="quality" readonly="1"/>
+                        <field name="oee" readonly="1"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- Menu Structure -->
+    <menuitem id="menu_performance_root" name="Performance" parent="mrp.menu_mrp_root" sequence="20"/>
+
+    <!-- Maker Performance Menu -->
+    <menuitem id="menu_maker_performance" name="Maker Performance" parent="menu_performance_root" sequence="10"/>
+    <record id="action_maker_performance" model="ir.actions.act_window">
+        <field name="name">Maker Performance</field>
+        <field name="res_model">maker.performance</field>
+        <field name="view_mode">tree,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">Track and analyze maker performance metrics</p>
+        </field>
+    </record>
+    <menuitem id="menu_maker_performance_action" name="Maker Performance" parent="mrp.menu_mrp_manufacturing" action="action_maker_performance"/>
+
+    <!-- Packer Performance Menu -->
+    <menuitem id="menu_packer_performance" name="Packer Performance" parent="mrp.menu_mrp_manufacturing" sequence="20"/>
+    <record id="action_packer_performance" model="ir.actions.act_window">
+        <field name="name">Packer Performance</field>
+        <field name="res_model">packer.performance</field>
+        <field name="view_mode">tree,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">Track and analyze packer performance metrics</p>
+        </field>
+    </record>
+    <menuitem id="menu_packer_performance_action" name="Packer Performance" parent="mrp.menu_mrp_manufacturing" action="action_packer_performance"/>
+
+</odoo>

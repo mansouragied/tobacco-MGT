@@ -1,0 +1,11 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_sub_bom,sub.bom,model_sub_bom,,1,1,1,1
+access_sub_bom_line,sub.bom.line,model_sub_bom_line,,1,1,1,1
+access_making_operation,making.operation,model_making_operation,,1,1,1,1
+access_making_operation_line,making.operation.line,model_making_operation_line,,1,1,1,1
+access_packing_operation,packing.operation,model_packing_operation,,1,1,1,1
+access_packing_operation_line,packing.operation.line,model_packing_operation_line,,1,1,1,1
+access_mrp_maker_performance_manager,Access Maker Performance Manager,model_maker_performance,base.group_system,1,1,1,1
+access_mrp_maker_performance_user,Access Maker Performance,model_maker_performance,base.group_user,1,1,1,0
+access_mrp_packer_performance_manager,Access Packer Performance Manager,model_packer_performance,base.group_system,1,1,1,1
+access_mrp_packer_performance_user,Access Packer Performance,model_packer_performance,base.group_user,1,1,1,0

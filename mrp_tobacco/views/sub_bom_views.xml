@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <!-- Tree View -->
+        <record id="view_sub_bom_tree" model="ir.ui.view">
+            <field name="name">sub.bom.tree</field>
+            <field name="model">sub.bom</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="name"/>
+                    <field name="type"/>
+                </tree>
+            </field>
+        </record>
+
+        <!-- Form View -->
+        <record id="view_sub_bom_form" model="ir.ui.view">
+            <field name="name">sub.bom.form</field>
+            <field name="model">sub.bom</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <group>
+                            <field name="name"/>
+                            <field name="type"/>
+                        </group>
+                        <notebook>
+                            <page string="Materials">
+                                <field name="line_ids">
+                                    <tree editable="bottom">
+                                        <field name="item_code"/>
+                                        <field name="material"/>
+                                        <field name="unit"/>
+                                        <field name="special_calc"/>
+                                        <field name="qty_per_cig"/>
+                                    </tree>
+                                </field>
+                            </page>
+                        </notebook>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+         <!-- Window Action -->
+        <record id="act_sub_bom" model="ir.actions.act_window">
+            <field name="name">Sub Bills of Materials</field>
+            <field name="res_model">sub.bom</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_id" ref="view_sub_bom_tree"/>
+            <field name="target">current</field>
+        </record>
+
+        <!-- Menu Item under Manufacturing → Products -->
+        <menuitem id="menu_sub_bom"
+                  name="Sub Bills of Materials"
+                  parent="mrp.menu_mrp_bom"
+                  action="act_sub_bom"
+                  sequence="15"/>
+    </data>
+</odoo>

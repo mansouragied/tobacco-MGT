@@ -1,0 +1,21 @@
+
+<odoo>
+  <record id="view_waste_wizard_form" model="ir.ui.view">
+    <field name="name">mrp.waste.wizard.form</field>
+    <field name="model">mrp.waste.wizard</field>
+    <field name="arch" type="xml">
+      <form string="Register Waste">
+        <group>
+          <field name="production_id" invisible="1"/>
+          <field name="product_id"/>
+          <field name="product_qty"/>
+          <field name="waste_qty"/>
+        </group>
+        <footer>
+          <button string="Apply" type="object" name="action_apply_waste" class="btn-primary"/>
+          <button string="Cancel" class="btn-secondary" special="cancel"/>
+        </footer>
+      </form>
+    </field>
+  </record>
+</odoo>

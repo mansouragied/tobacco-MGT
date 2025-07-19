@@ -1,0 +1,82 @@
+<odoo>
+    <record id="view_packing_operation_tree" model="ir.ui.view">
+        <field name="name">packing.operation.tree</field>
+        <field name="model">packing.operation</field>
+        <field name="arch" type="xml">
+            <tree>
+                    <field name="mo_id"/>
+                    <field name="actual_production_mc"/>
+                    <field name="actual_production_pack"/>
+                    <field name="waste_cig"/>
+                    <field name="waste_kg"/>
+                    <field name="shell_wast"/>
+                    <field name="slide_wast"/>
+                    <field name="alum_foil_wast"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="view_packing_operation_form" model="ir.ui.view">
+        <field name="name">packing.operation.form</field>
+        <field name="model">packing.operation</field>
+        <field name="arch" type="xml">
+            <form string="Packing Operation">
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="date"/>
+                            <field name="operation_ref" readonly="1"/>
+                            <field name="mo_id" domain="[('state','=','done')]"/>
+                        </group>
+                        <group>
+                            <field name="actual_production_mc"/>
+                            <field name="actual_production_pack" readonly="1"/>
+                        </group>
+                        <group>
+                            <field name="waste_kg"/>
+                            <field name="waste_cig" readonly="1"/>
+                        </group>
+                        <group>
+                            <field name="shell_wast"/>
+                            <field name="slide_wast"/>
+                            <field name="alum_foil_wast"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Material Usage">
+                            <field name="line_ids">
+                                <tree editable="bottom">
+                                    <field name="item_code" readonly="1"/>
+                                    <field name="material_id" readonly="1"/>
+                                    <field name="unit_id" readonly="1"/>
+                                    <field name="qty_mc"/>
+                                    <field name="standard_usage" readonly="1"/>
+                                    <field name="actual_usage" readonly="1"/>
+                                    <field name="difference" readonly="1"/>
+                                </tree>
+                                <form>
+                                    <group>
+                                        <field name="item_code"/>
+                                        <field name="material_id"/>
+                                        <field name="unit_id"/>
+                                        <field name="qty_mc"/>
+                                        <field name="standard_usage"/>
+                                        <field name="actual_usage"/>
+                                        <field name="difference"/>
+                                    </group>
+                                </form>
+                            </field>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+    <record id="action_packing_operation" model="ir.actions.act_window">
+        <field name="name">Packing Operations</field>
+        <field name="res_model">packing.operation</field>
+        <field name="view_mode">tree,form</field>
+        <field name="context">{}</field>
+    </record>
+    <menuitem id="menu_packing_operation" name="Packing Operation" parent="mrp.menu_mrp_manufacturing" action="action_packing_operation" sequence="20"/>
+</odoo>

@@ -1,0 +1,18 @@
+<odoo>
+    <!-- Making Operation Sequence -->
+    <record id="seq_making_operation" model="ir.sequence">
+        <field name="name">Making Operation Reference</field>
+        <field name="code">making.operation</field>
+        <field name="prefix">Making/Operation/</field>
+        <field name="padding">4</field>
+        <field name="company_id" eval="False"/>
+    </record>
+    <!-- Packing Operation Sequence -->
+    <record id="seq_packing_operation" model="ir.sequence">
+        <field name="name">Packing Operation Reference</field>
+        <field name="code">packing.operation</field>
+        <field name="prefix">Packing/Operation/</field>
+        <field name="padding">4</field>
+        <field name="company_id" eval="False"/>
+    </record>
+</odoo>
